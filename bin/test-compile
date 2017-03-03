@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# bin/test-compile <build-dir> <cache-dir> <env-dir>
+
+# fail fast
+set -e
+
+BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
+. $BP_DIR/lib/common.sh
+. $BP_DIR/lib/maven.sh
+
+# parse args
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+export_env_dir $ENV_DIR
+
+JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
+mkdir -p /tmp/jvm-common
+curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
+. /tmp/jvm-common/bin/util
+. /tmp/jvm-common/bin/java
+. /tmp/jvm-common/opt/jdbc.sh
+install_java_with_overlay ${BUILD_DIR}
+
+cd $BUILD_DIR
+
+cache_copy ".m2" $CACHE_DIR $BUILD_DIR
+run_mvn "test-compile" $BUILD_DIR $BUILD_DIR
+write_mvn_profile $BUILD_DIR
+cache_copy ".m2" $BUILD_DIR $CACHE_DIR
