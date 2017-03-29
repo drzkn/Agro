@@ -6,24 +6,35 @@
     tools:context="com.example.diego.agrov1.MainPage">
 
     <TextView
-        android:text="Pepito perez"
+        android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:text="Pepito perez"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="33dp"
-        android:id="@+id/user" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:onClick="toAdd"
+        android:text="Añadir" />
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listview_listado"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/user"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp"
-        android:onCLick="toExplotacion"/>
+        android:layout_above="@+id/button"
+        android:layout_below="@+id/user" />
+
 </RelativeLayout>

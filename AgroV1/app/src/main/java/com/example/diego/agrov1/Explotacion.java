@@ -1,5 +1,6 @@
 package com.example.diego.agrov1;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +10,8 @@ import java.util.Date;
  * Created by diego on 15/03/2017.
  */
 
-public class Explotacion {
+@SuppressWarnings("serial")
+public class Explotacion implements Serializable {
 
     private String id;
     private String name;
@@ -17,7 +19,7 @@ public class Explotacion {
     private float lat;
     private float lon;
     private Date abon;
-    private Cultivo cult;
+    private String cult;
 
     @Override
     public String toString() {
@@ -28,7 +30,7 @@ public class Explotacion {
                 "\n" + cult + "\n" ;
     }
 
-    public Explotacion(String id, String name, float ext, float lat, float lon, Date abon, Cultivo cult) {
+    public Explotacion(String id, String name, float ext, float lat, float lon, Date abon, String cult) {
 
         this.id = id;
         this.name = name;
@@ -61,11 +63,10 @@ public class Explotacion {
     }
 
     public Date getAbon() {
-        //DateFormat d;
         return abon;
     }
 
-    public Cultivo getCult() {
+    public String getCult() {
         return cult;
     }
 

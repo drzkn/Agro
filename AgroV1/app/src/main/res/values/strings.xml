@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AgroV1</string>
+    <string name="access_token">pk.eyJ1IjoicmFhc2tpbiIsImEiOiJjaXo4YWQxMTkwMGh3MzNwOXYwYzVlZ3oxIn0.BF-yjMLQpGbIEHikfOPRgA</string>
 </resources>
+
