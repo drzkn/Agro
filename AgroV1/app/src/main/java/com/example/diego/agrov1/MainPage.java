@@ -21,7 +21,7 @@ import java.util.Iterator;
 public class MainPage extends AppCompatActivity{
 
     private ListView list;
-
+    private float lat,lon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +33,12 @@ public class MainPage extends AppCompatActivity{
         Explotacion[] eprima;
         Explotacion e;
         Date d;
+        lat = (float) 42.7892159;
+        lon = (float) -1.6123983;
         d = new Date();
-        e = new Explotacion("1","Valle de Aranguren 1",1,1,1,d,"trigo");
+        e = new Explotacion("1","Valle de Aranguren 1",1,lat,lon,d,"trigo");
         esegunda.add(e);
-        e = new Explotacion("2","Valle de Aranguren 2",1,1,1,d,"trigo");
+        e = new Explotacion("2","Valle de Aranguren 2",1,lat,lon,d,"trigo");
         esegunda.add(e);
         eprima = fromArrayListToArray(esegunda);
 

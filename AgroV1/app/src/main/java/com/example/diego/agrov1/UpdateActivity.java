@@ -63,4 +63,15 @@ public class UpdateActivity extends AppCompatActivity {
 
     }
 
+    public void toMap (View view){
+
+        Intent intent = new Intent(this, MapActivity.class);
+
+        Explotacion objeto = (Explotacion)getIntent().getExtras().getSerializable("parametro");
+        intent.putExtra("parametro", objeto);
+
+        startActivity(intent);
+
+    }
+
 }
