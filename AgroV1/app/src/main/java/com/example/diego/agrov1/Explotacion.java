@@ -18,19 +18,19 @@ public class Explotacion implements Serializable {
     private float ext;
     private float lat;
     private float lon;
-    private Date abon;
+    private String abon;
     private String cult;
 
     @Override
     public String toString() {
-        DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
+
         return name + "\n" +
                 "Estension " + ext + " hectareas" +
-                "\nUltimo abonado\n" + d.format(abon) +
+                "\nUltimo abonado\n" + abon +
                 "\n" + cult + "\n" ;
     }
 
-    public Explotacion(String id, String name, float ext, float lat, float lon, Date abon, String cult) {
+    public Explotacion(String id, String name, float ext, float lat, float lon, String abon, String cult) {
 
         this.id = id;
         this.name = name;
@@ -62,7 +62,7 @@ public class Explotacion implements Serializable {
         return lon;
     }
 
-    public Date getAbon() {
+    public String getAbon() {
         return abon;
     }
 

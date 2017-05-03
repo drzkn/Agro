@@ -71,6 +71,7 @@ public class UpdateActivity extends AppCompatActivity {
         intent.putExtra("parametro", objeto);
 
         startActivity(intent);
+        finish();
 
     }
 

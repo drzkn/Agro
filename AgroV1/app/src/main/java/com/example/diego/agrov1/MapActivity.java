@@ -1,7 +1,9 @@
 package com.example.diego.agrov1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
@@ -21,10 +23,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         MapboxAccountManager.start(this, getString(R.string.access_token));
 
-
         setContentView(R.layout.activity_map);
-
-
 
         mapView = (MapView)findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -84,5 +83,17 @@ public class MapActivity extends AppCompatActivity {
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    public void toUpdate (View view){
+
+        Intent intent = new Intent(this, UpdateActivity.class);
+
+        Explotacion objeto = (Explotacion)getIntent().getExtras().getSerializable("parametro");
+        intent.putExtra("parametro", objeto);
+
+        startActivity(intent);
+        finish();
+
     }
 }

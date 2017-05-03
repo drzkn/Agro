@@ -7,15 +7,39 @@
     android:layout_height="match_parent"
     tools:context="com.mapbox.simplemap.MapActivity">
 
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        mapbox:center_latitude="48.13726"
-        mapbox:center_longitude="42.78921"
-        mapbox:style_url="mapbox://styles/raaskin/ciz8clywf007k2rlr65q7phpd"
-        mapbox:tilt="20"
-        mapbox:zoom="20"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            mapbox:center_latitude="48.13726"
+            mapbox:center_longitude="42.78921"
+            mapbox:style_url="mapbox://styles/raaskin/ciz8clywf007k2rlr65q7phpd"
+            mapbox:tilt="20"
+            mapbox:zoom="20"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="46dp">
+
+        </com.mapbox.mapboxsdk.maps.MapView>
+
+        <Button
+            android:id="@+id/Actualizar"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:onClick="toUpdate"
+            android:text="Ir a actualizar" />
+    </RelativeLayout>
 
 </RelativeLayout>

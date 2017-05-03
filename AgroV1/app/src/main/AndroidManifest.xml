@@ -9,6 +9,7 @@
     <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
 
     <application
+        android:name=".ParseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Agro"
